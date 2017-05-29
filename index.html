@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Test FM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body ng-app="testTask">
+    <header class="header">
+      <div class="wrapper header-wrapper">
+        <div class="header-navbar">
+          <div class="header-logo"><a href="/"><img src="img/header/logo.png" alt="logo"></a></div>
+          <nav class="header-menu">
+            <ul class="header-menu__items">
+              <li class="header-menu__item"><a class="header-menu__link" href="#">Home</a></li>
+              <li class="header-menu__item"><a class="header-menu__link" href="#">Products</a></li>
+              <li class="header-menu__item header-menu__item_nopad"><a class="header-menu__link header-menu__link_nohov" href="#"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+        <section class="header-info">
+          <h1 class="header-info__title">Our clothing , your comfort</h1>
+          <p class="header-info__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br> eiusmod tempor incididunt ut labore et dolore <br> magna aliqua.</p>
+        </section>
+        <div class="header-button"><a class="ancLinks" href="#filter"><i class="header-button__icon fa fa-chevron-down fa-2x" id="button-down" aria-hidden="true"></i></a></div>
+      </div>
+    </header>
+    <div class="filter-container" ng-controller="productsCtrl">
+      <section class="filter scroll" id="filter">
+        <div class="wrapper">
+          <form class="filter-form">
+            <div class="wrapper-checkbox">
+              <label class="filter-form__label" ng-repeat="(key, value) in showCategory">
+                <input class="filter-form__checkbox" type="checkbox" ng-checked="value" ng-click="setFilter(key, !value)">{{key}}
+              </label>
+            </div>
+            <button class="filter-form__button" ng-click="clearFilter()">see all products</button>
+          </form>
+        </div>
+      </section>
+      <section class="product">
+        <div class="product-card" ng-repeat="product in data.items | filter : filterByCategory">
+          <div class="product-card-header">
+            <select class="product-card-header__select">
+              <option class="product-card-header__option" ng-repeat="option in product.options">{{option}}</option>
+            </select>
+          </div>
+          <div class="product-card-image"><img ng-srcset="img/products/{{product.img}}.png" alt="card-img"></div>
+          <div class="product-card-footer">
+            <p class="product-card-footer__title">{{product.name}}</p>
+            <p class="product-card-footer__price">{{product.price}}€</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer" ng-controller="menuCtrl">
+      <div class="footer-twitter">
+        <div class="wrapper">
+          <p class="footer-twitter__post"><i class="footer-twitter__icon fa fa-twitter fa-2x" aria-hidden="true"></i>“ E-commerce psd theme available ”</p>
+        </div>
+      </div>
+      <div class="footer-trekking">
+        <div class="wrapper footer-trekking-wrapper">
+          <div class="footer-info">
+            <h1 class="footer-info__title">Trekking</h1>
+            <p class="footer-info__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="footer-menu">
+            <ul class="footer-menu__items">
+              <li class="footer-menu__item" ng-repeat="menu in data.footerMenu"><a class="footer-menu__link" href="{{menu.link}}">{{menu.name}}</a></li>
+            </ul>
+            <p class="footer-menu__design">Design by gianluca cosetta</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/index.js"></script>
+  </body>
+</html>
