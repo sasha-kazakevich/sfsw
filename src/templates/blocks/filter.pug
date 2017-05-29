@@ -1,0 +1,9 @@
+section.filter#filter.scroll
+  .wrapper
+    form.filter-form
+      .wrapper-checkbox
+        label.filter-form__label(ng-repeat="(key, value) in showCategory")
+          input.filter-form__checkbox(type="checkbox" ng-checked="value" ng-click="setFilter(key, !value)")
+          | {{key}}
+      button.filter-form__button(ng-click="clearFilter()") see all products
+    

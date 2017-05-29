@@ -1,0 +1,16 @@
+footer.footer(ng-controller="menuCtrl")
+  .footer-twitter
+    .wrapper
+      p.footer-twitter__post
+        i.footer-twitter__icon(class="fa fa-twitter fa-2x" aria-hidden="true")
+        | “ E-commerce psd theme available ”
+  .footer-trekking
+    .wrapper.footer-trekking-wrapper
+      .footer-info
+        h1.footer-info__title Trekking
+        p.footer-info__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      .footer-menu
+        ul.footer-menu__items
+          li.footer-menu__item(ng-repeat="menu in data.footerMenu")
+            a.footer-menu__link(href="{{menu.link}}") {{menu.name}}
+        p.footer-menu__design Design by gianluca cosetta

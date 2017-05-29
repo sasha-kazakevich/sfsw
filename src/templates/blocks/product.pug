@@ -1,0 +1,10 @@
+section.product
+  .product-card(ng-repeat="product in data.items | filter : filterByCategory")
+    .product-card-header
+      select.product-card-header__select
+        option.product-card-header__option(ng-repeat="option in product.options") {{option}}
+    .product-card-image
+      img(ng-srcset="img/products/{{product.img}}.png" alt="card-img")
+    .product-card-footer
+      p.product-card-footer__title {{product.name}}
+      p.product-card-footer__price {{product.price}}€

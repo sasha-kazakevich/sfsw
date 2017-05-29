@@ -1,0 +1,22 @@
+body,html {
+    width: 100%;
+    font-family: 'Roboto';
+    font-size: 18px;
+
+    box-sizing: border-box;
+}
+
+p,h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    padding: 0 60px;
+}
+
+@media (max-width: 470px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+}
